@@ -6,8 +6,8 @@ import org.hibernate.cfg.Configuration;
 
 public class SessionConfif {
 
-    private SessionFactory factory;
-    private Session session;
+    private final SessionFactory factory;
+    private final Session session;
 
     
     // Constructor
@@ -28,6 +28,6 @@ public class SessionConfif {
 
     public void close(){
         session.close();
-        factory.close();;
+        factory.close();
     }
 }
