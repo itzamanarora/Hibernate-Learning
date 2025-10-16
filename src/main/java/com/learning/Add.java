@@ -3,37 +3,47 @@ package com.learning;
 import org.hibernate.Session;
 
 public class Add {
+
+    private int emp_id;
+    private String emp_first_name;
+    private String emp_last_name;
+    private int emp_age;
+    
+    public Add() {
+        System.out.println("Enter valid Employee Details to Add!");
+    }
+
+    public Add(int emp_id, String emp_first_name, String emp_last_name, int emp_age) {
+        this.emp_id = emp_id;
+        this.emp_first_name = emp_first_name;
+        this.emp_last_name = emp_last_name;
+        this.emp_age = emp_age;
+    }
     
     @SuppressWarnings("ConvertToTryWithResources")
-    public static void main( String[] args ) {
+    public void AddEmployeeDetails() {
 
-        // 1️⃣ Create Configuration object
-        // Configuration cfg = new Configuration();
-        // cfg.configure("hibernate.cfg.xml");  // make sure hibernate.cfg.xml is in src/main/resources
-
-        // 2️⃣ Build SessionFactory from Configuration
-        // SessionFactory factory = cfg.buildSessionFactory();
-
-        // 3️⃣ Open a Session
-        // Session session = factory.openSession();
+        if (emp_id <= 0 || emp_first_name.isEmpty() || emp_last_name.isEmpty() || emp_age <= 0) {
+            System.out.println("Please provide valid Employee Details!");
+            return;
+        }
 
         SessionConfif conf = new SessionConfif();
         Session session = conf.getSession();
 
         try {
-            // 4️⃣ Start Transaction
             session.beginTransaction();
 
             EmpDetails obj3 = new EmpDetails();
-            obj3.setEmp_id(5);
-            obj3.setEmp_first_name("Vievk");
-            obj3.setEmp_last_name("Gautham");
-            obj3.setEmp_age(24);
+            obj3.setEmp_id(emp_id);
+            obj3.setEmp_first_name(emp_first_name);
+            obj3.setEmp_last_name(emp_last_name);
+            obj3.setEmp_age(emp_age);
 
-            // 5️⃣ Save student object to DB
+            // Save student object to DB
             session.persist(obj3);
 
-            // 6️⃣ Commit transaction
+            // Commit transaction
             session.getTransaction().commit();
             System.out.println("Employee Added Successfully!");
 
@@ -41,7 +51,7 @@ public class Add {
             System.out.println("Something went wrong! "+e);
 
         } finally {
-            // 7️⃣ Close Session and SessionFactory
+            // Close Session and SessionFactory
             conf.close();
         }
 
