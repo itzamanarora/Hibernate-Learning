@@ -6,6 +6,8 @@ import org.hibernate.annotations.UuidGenerator;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -14,9 +16,12 @@ import jakarta.persistence.Table;
 public class EmpDetails {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     @UuidGenerator
     @Column(nullable=false, updatable=false)
-    private UUID emp_id;
+    private UUID uuid;
 
     @Column(nullable=false,length=50)
     private String emp_first_name;
@@ -26,6 +31,9 @@ public class EmpDetails {
 
     @Column(nullable=false)
     private int emp_age;
+
+    @Column(nullable=false)
+    private String emp_created_at = java.time.LocalDateTime.now().toString();
 
     public EmpDetails() {
     }
@@ -60,8 +68,11 @@ public class EmpDetails {
         this.emp_age = emp_age;
     }
 
-    public UUID getEmp_id() {
-        return emp_id;
+    public UUID getUUID() {
+        return uuid;
     }
 
+    public String getEmp_created_at() {
+        return emp_created_at;
+    }
 }
