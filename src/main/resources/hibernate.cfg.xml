@@ -21,6 +21,6 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Annotated classes -->
-        <mapping class="com.learning.EmpDetails"/>
+        <mapping class="com.learning.Models.EmpDetails"/>
     </session-factory>
 </hibernate-configuration>

@@ -2,6 +2,10 @@ package com.learning;
 
 import java.util.Scanner;
 
+import com.learning.EmployeeAPIS.Add;
+import com.learning.EmployeeAPIS.Get;
+import com.learning.EmployeeAPIS.GetbyID;
+
 public class MainMenu {
     public static void main(String[] args) {
 
@@ -17,30 +21,31 @@ public class MainMenu {
 
             
             switch (choice) {
-                case 1:
-                    System.out.println("Enter Employee Id:");
-                    int emp_id = sc.nextInt();
+                case 1 -> {
                     System.out.println("Enter Employee First Name:");
                     String emp_first_name = sc.next();
                     System.out.println("Enter Employee Last Name:");
                     String emp_last_name = sc.next();
                     System.out.println("Enter Employee Age:");
                     int emp_age = sc.nextInt();
-                    Add addEmp = new Add(emp_id, emp_first_name, emp_last_name, emp_age);
+                    Add addEmp = new Add(emp_first_name, emp_last_name, emp_age);
                     addEmp.AddEmployeeDetails();
                     break;
-                case 2:
+                }
+                case 2 -> {
                     Get getEmp = new Get();
                     getEmp.GetAllEmployeeDetails();
                     break;
-                case 3:
+                }
+                case 3 -> {
+
                     System.out.println("Enter Employee Id to get Details:");
                     int get_emp_id = sc.nextInt();
                     GetbyID getbyid = new GetbyID(get_emp_id);
                     getbyid.GetEmployeeById();
                     break;
-                default:
-                    break;
+                }
+                default -> System.out.println("Invalid choice! Please Pick between 1-3. ");
             }
         } catch (Exception e) {
             System.out.println("Something went wrong! "+e);

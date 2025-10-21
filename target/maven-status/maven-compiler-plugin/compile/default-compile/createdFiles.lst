@@ -1,6 +1,7 @@
-com\learning\Add.class
-com\learning\Get.class
 com\learning\MainMenu.class
-com\learning\GetbyID.class
+com\learning\Models\EmpDetails.class
+com\learning\Models\Company.class
+com\learning\EmployeeAPIS\Get.class
+com\learning\EmployeeAPIS\GetbyID.class
 com\learning\SessionConfif.class
-com\learning\EmpDetails.class
+com\learning\EmployeeAPIS\Add.class

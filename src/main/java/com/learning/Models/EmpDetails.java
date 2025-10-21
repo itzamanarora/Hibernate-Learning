@@ -1,5 +1,10 @@
-package com.learning;
+package com.learning.Models;
 
+import java.util.UUID;
+
+import org.hibernate.annotations.UuidGenerator;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -9,27 +14,26 @@ import jakarta.persistence.Table;
 public class EmpDetails {
 
     @Id
-    private int emp_id;
+    @UuidGenerator
+    @Column(nullable=false, updatable=false)
+    private UUID emp_id;
+
+    @Column(nullable=false,length=50)
     private String emp_first_name;
+
+    @Column(nullable=false,length=50)
     private String emp_last_name;
+
+    @Column(nullable=false)
     private int emp_age;
 
     public EmpDetails() {
     }
 
-    public EmpDetails(int emp_id, String emp_first_name, String emp_last_name, int emp_age){
-        this.emp_id = emp_id;
+    public EmpDetails(String emp_first_name, String emp_last_name, int emp_age){
         this.emp_first_name = emp_first_name;
         this.emp_last_name = emp_last_name;
         this.emp_age = emp_age;
-    }
-
-    public int getEmp_id() {
-        return emp_id;
-    }
-
-    public void setEmp_id(int emp_id) {
-        this.emp_id = emp_id;
     }
 
     public String getEmp_first_name() {
@@ -54,6 +58,10 @@ public class EmpDetails {
 
     public void setEmp_age(int emp_age) {
         this.emp_age = emp_age;
+    }
+
+    public UUID getEmp_id() {
+        return emp_id;
     }
 
 }

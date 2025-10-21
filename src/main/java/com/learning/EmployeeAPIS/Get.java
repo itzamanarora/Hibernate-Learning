@@ -1,8 +1,11 @@
-package com.learning;
+package com.learning.EmployeeAPIS;
 
 import java.util.List;
 
 import org.hibernate.Session;
+
+import com.learning.Models.EmpDetails;
+import com.learning.SessionConfif;
 
 public class Get {
     public void GetAllEmployeeDetails() {
