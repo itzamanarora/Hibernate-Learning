@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name="EmpDetails")
@@ -18,6 +19,9 @@ public class EmpDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    //Transient fields are not persisted in the database
+    @Transient // Not a DB Column
 
     @UuidGenerator
     @Column(nullable=false, updatable=false)
@@ -73,6 +77,12 @@ public class EmpDetails {
     }
 
     public String getEmp_created_at() {
+        return emp_created_at;
+    }
+    public long getEmp_id() {
+        return id;
+    }
+    public String getCreatingTime() {
         return emp_created_at;
     }
 }

@@ -17,7 +17,7 @@ public class Get {
             // Get Employee Details
             List<EmpDetails> empList = session.createQuery("from EmpDetails", EmpDetails.class).list();
             for (EmpDetails emp : empList) {
-                System.out.println("ID: " + emp.getEmp_id() + ", First Name: " + emp.getEmp_first_name() + ", Last Name: " + emp.getEmp_last_name() + ", Age: " + emp.getEmp_age());
+                System.out.println("ID: " + emp.getEmp_id() + ", First Name: " + emp.getEmp_first_name() + ", Last Name: " + emp.getEmp_last_name() + ", Age: " + emp.getEmp_age() + ", Created At: " + emp.getCreatingTime());
             }
             session.getTransaction().commit();
         } catch (Exception e) {

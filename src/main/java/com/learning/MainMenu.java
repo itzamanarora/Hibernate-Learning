@@ -9,7 +9,7 @@ import com.learning.EmployeeAPIS.GetbyID;
 public class MainMenu {
     public static void main(String[] args) {
 
-        try( Scanner sc = new Scanner(System.in) ) {
+        try (Scanner sc = new Scanner(System.in)) {
             System.out.println("Welcome to Employee Management System!");
             System.out.println("--------------------------------------");
             System.out.println("1. ADD Employee Details");
@@ -19,7 +19,6 @@ public class MainMenu {
             System.out.println("Choose any 1 Option(1-4): ");
             int choice = sc.nextInt();
 
-            
             switch (choice) {
                 case 1 -> {
                     System.out.println("Enter Employee First Name:");
@@ -48,7 +47,7 @@ public class MainMenu {
                 default -> System.out.println("Invalid choice! Please Pick between 1-3. ");
             }
         } catch (Exception e) {
-            System.out.println("Something went wrong! "+e);
+            System.out.println("Something went wrong! " + e);
         }
     }
 }
