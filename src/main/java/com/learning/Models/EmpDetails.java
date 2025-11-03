@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+// import jakarta.persistence.ManyToOne;
+// import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
@@ -35,6 +37,13 @@ public class EmpDetails {
 
     @Column(nullable=false)
     private int emp_age;
+
+    // This is commented for now, can be used later for association
+    // The whole Company object can be linked here
+    // @Embedded -- means the fields of Company will be part of EmpDetails table
+    // @ManyToOne
+    // @JoinColumn(name="company_id")
+    // private Company company; // Association with Company
 
     @Column(nullable=false)
     private String emp_created_at = java.time.LocalDateTime.now().toString();
